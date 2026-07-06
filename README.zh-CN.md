@@ -53,24 +53,35 @@
 
 ## 快速开始
 
+本地试用时，按下面两步即可：
+
 ```powershell
+git clone https://github.com/Zc030201/cad-agent-skill.git
+cd cad-agent-skill
 python -m pip install -e .
-python -m unittest discover -s tests
-python scripts\privacy_scan.py .
 ```
+
+运行合成示例检查：
+
+```powershell
+cad-agent-skill validate-catalog --catalog .\examples\synthetic_component_catalog.csv
+cad-agent-skill validate-placement --placement-plan .\examples\synthetic_project\planning\placement_plan.csv
+```
+
+这两步可以确认命令行工具、数据契约和公开示例文件都能正常工作。下面是更完整的可选流程。
+
+## 示例流程
 
 初始化一个演示工程：
 
 ```powershell
-python -m cad_agent_skill init `
-  --project-id demo-industrial-panel `
-  --root .\out\demo-industrial-panel
+cad-agent-skill init --project-id demo-industrial-panel --root .\out\demo-industrial-panel
 ```
 
 根据公开或合成需求生成 IR：
 
 ```powershell
-python -m cad_agent_skill create-ir `
+cad-agent-skill create-ir `
   --project-id demo-industrial-panel `
   --out .\out\demo-industrial-panel\ir\cad_ir.json `
   --requirement "Create a modular industrial control panel with a frame, removable cover, hinge set, and access opening."
@@ -79,7 +90,7 @@ python -m cad_agent_skill create-ir `
 查询合成组件目录：
 
 ```powershell
-python -m cad_agent_skill query-catalog `
+cad-agent-skill query-catalog `
   --catalog .\examples\synthetic_component_catalog.csv `
   --category hinge `
   --min-confidence medium `
@@ -89,11 +100,11 @@ python -m cad_agent_skill query-catalog `
 生成并验证放置规划：
 
 ```powershell
-python -m cad_agent_skill build-plan `
+cad-agent-skill build-plan `
   --selected .\examples\synthetic_selected_components.csv `
   --out .\out\demo-industrial-panel\planning\placement_plan.csv
 
-python -m cad_agent_skill validate-placement `
+cad-agent-skill validate-placement `
   --placement-plan .\out\demo-industrial-panel\planning\placement_plan.csv `
   --out .\out\demo-industrial-panel\validation\placement_validation.json
 ```

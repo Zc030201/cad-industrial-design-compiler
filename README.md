@@ -58,23 +58,36 @@ production component libraries.
 
 ## Quick Start
 
+Use the repository directly when trying the skill locally:
+
 ```powershell
+git clone https://github.com/Zc030201/cad-agent-skill.git
+cd cad-agent-skill
 python -m pip install -e .
-python -m unittest discover -s tests
 ```
 
-Create a compiler project:
+Run the synthetic validation example:
 
 ```powershell
-python -m cad_agent_skill init `
-  --project-id demo-industrial-panel `
-  --root .\out\demo-industrial-panel
+cad-agent-skill validate-catalog --catalog .\examples\synthetic_component_catalog.csv
+cad-agent-skill validate-placement --placement-plan .\examples\synthetic_project\planning\placement_plan.csv
+```
+
+That is enough to confirm the CLI, data contract, and public example files are
+working. The commands below show the fuller workflow.
+
+## Example Workflow
+
+Create a project workspace:
+
+```powershell
+cad-agent-skill init --project-id demo-industrial-panel --root .\out\demo-industrial-panel
 ```
 
 Create an IR from public or synthetic notes:
 
 ```powershell
-python -m cad_agent_skill create-ir `
+cad-agent-skill create-ir `
   --project-id demo-industrial-panel `
   --out .\out\demo-industrial-panel\ir\cad_ir.json `
   --requirement "Create a modular industrial control panel with a frame, removable cover, hinge set, and access opening."
@@ -83,7 +96,7 @@ python -m cad_agent_skill create-ir `
 Query the synthetic component catalog:
 
 ```powershell
-python -m cad_agent_skill query-catalog `
+cad-agent-skill query-catalog `
   --catalog .\examples\synthetic_component_catalog.csv `
   --category hinge `
   --min-confidence medium `
@@ -93,11 +106,11 @@ python -m cad_agent_skill query-catalog `
 Build and validate a placement plan:
 
 ```powershell
-python -m cad_agent_skill build-plan `
+cad-agent-skill build-plan `
   --selected .\examples\synthetic_selected_components.csv `
   --out .\out\demo-industrial-panel\planning\placement_plan.csv
 
-python -m cad_agent_skill validate-placement `
+cad-agent-skill validate-placement `
   --placement-plan .\out\demo-industrial-panel\planning\placement_plan.csv `
   --out .\out\demo-industrial-panel\validation\placement_validation.json
 ```
