@@ -6,11 +6,11 @@
 </p>
 
 <p align="center">
-  <img src="assets/cad-agent-skill-hero.svg" alt="CAD Agent Skill visual overview">
+  <img src="assets/cad-agent-skill-hero.zh-CN.svg" alt="CAD Agent Skill 中文流程概览" width="760">
 </p>
 
 <p align="center">
-  <img src="assets/cad-agent-skill-demo.gif" alt="Animated CAD Agent Skill workflow demo" width="760">
+  <img src="assets/cad-agent-skill-demo.zh-CN.gif" alt="CAD Agent Skill 中文动态流程演示" width="760">
 </p>
 
 这是一个辅助 CAD Agent 工作的开源 skill 示例。它面向 CAD 工业设计，把开放式设计需求整理成可检查、可复现、可交接的结构化产物，便于在真正调用 CAD 建模后端之前完成规划、追踪和验证。

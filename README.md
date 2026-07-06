@@ -8,7 +8,7 @@ A privacy-first workflow skill for CAD agents working on industrial design.
 </p>
 
 <p align="center">
-  <img src="assets/cad-agent-skill-hero.svg" alt="CAD Agent Skill visual overview">
+  <img src="assets/cad-agent-skill-hero.svg" alt="CAD Agent Skill visual overview" width="760">
 </p>
 
 <p align="center">

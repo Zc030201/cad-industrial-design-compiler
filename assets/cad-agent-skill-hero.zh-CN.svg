@@ -20,29 +20,29 @@
   <rect width="960" height="420" rx="28" fill="#FFFFFF"/>
   <rect x="24" y="24" width="912" height="372" rx="26" fill="url(#panel)" stroke="#D8E2EA"/>
   <text x="54" y="82" class="title">CAD Agent Skill</text>
-  <text x="56" y="112" class="subtitle">A privacy-first workflow layer for agent-assisted CAD planning.</text>
+  <text x="56" y="112" class="subtitle">面向 CAD Agent 的隐私优先工作流技能层</text>
 
   <rect x="58" y="156" width="210" height="132" rx="18" fill="#FFFFFF" stroke="#CBD5E1"/>
-  <text x="82" y="194" class="label">Text request</text>
-  <text x="82" y="225" class="small">Natural-language design intent</text>
-  <text x="82" y="253" class="mono">"Create a modular</text>
-  <text x="82" y="276" class="mono">industrial panel..."</text>
+  <text x="82" y="194" class="label">文本需求</text>
+  <text x="82" y="225" class="small">自然语言设计意图</text>
+  <text x="82" y="253" class="mono">"创建模块化</text>
+  <text x="82" y="276" class="mono">工业面板..."</text>
 
   <path d="M286 222 H365" stroke="#94A3B8" stroke-width="4" stroke-linecap="round"/>
   <path d="M353 210 L369 222 L353 234" stroke="#94A3B8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
 
   <rect x="370" y="140" width="220" height="166" rx="26" fill="url(#core)"/>
-  <text x="480" y="200" text-anchor="middle" fill="#FFFFFF" style="font:700 28px Arial, 'Microsoft YaHei', sans-serif">Workflow</text>
+  <text x="480" y="200" text-anchor="middle" fill="#FFFFFF" style="font:700 28px Arial, 'Microsoft YaHei', sans-serif">工作流</text>
   <text x="480" y="237" text-anchor="middle" fill="#DDF8EE" style="font:700 28px Arial, 'Microsoft YaHei', sans-serif">Skill</text>
   <rect x="394" y="258" width="172" height="36" rx="18" fill="#FFFFFF" fill-opacity="0.18" stroke="#E5FFF4" stroke-opacity="0.45"/>
-  <text x="480" y="281" text-anchor="middle" fill="#FFFFFF" style="font:700 15px Arial, 'Microsoft YaHei', sans-serif">agent guardrails</text>
+  <text x="480" y="281" text-anchor="middle" fill="#FFFFFF" style="font:700 15px Arial, 'Microsoft YaHei', sans-serif">Agent 约束层</text>
 
   <path d="M596 222 H675" stroke="#94A3B8" stroke-width="4" stroke-linecap="round"/>
   <path d="M663 210 L679 222 L663 234" stroke="#94A3B8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
 
   <rect x="692" y="156" width="210" height="132" rx="18" fill="#FFFFFF" stroke="#CBD5E1"/>
-  <text x="716" y="194" class="label">Validated handoff</text>
-  <text x="716" y="225" class="small">Structured CAD artifacts</text>
+  <text x="716" y="194" class="label">验证交付</text>
+  <text x="716" y="225" class="small">结构化 CAD 产物</text>
   <path d="M735 252 h96 v26 h-96 z" stroke="#0E7C86" stroke-width="3" fill="#E8FAF5"/>
   <path d="M759 252 v26M784 252 v26M809 252 v26" stroke="#0E7C86" stroke-width="2"/>
   <circle cx="855" cy="265" r="15" fill="#2A9D55"/>
@@ -50,9 +50,9 @@
 
   <g transform="translate(82 332)">
     <rect x="0" y="0" width="118" height="38" rx="19" fill="#E0F2FE"/><text x="35" y="25" class="node">CAD IR</text>
-    <rect x="150" y="0" width="118" height="38" rx="19" fill="#ECFDF5"/><text x="178" y="25" class="node">Catalog</text>
-    <rect x="300" y="0" width="118" height="38" rx="19" fill="#FFF7ED"/><text x="328" y="25" class="node">Plan</text>
-    <rect x="450" y="0" width="118" height="38" rx="19" fill="#F1F5F9"/><text x="478" y="25" class="node">Graph</text>
-    <rect x="600" y="0" width="130" height="38" rx="19" fill="#F0FDF4"/><text x="630" y="25" class="node">Validate</text>
+    <rect x="150" y="0" width="118" height="38" rx="19" fill="#ECFDF5"/><text x="178" y="25" class="node">组件目录</text>
+    <rect x="300" y="0" width="118" height="38" rx="19" fill="#FFF7ED"/><text x="328" y="25" class="node">放置规划</text>
+    <rect x="450" y="0" width="118" height="38" rx="19" fill="#F1F5F9"/><text x="478" y="25" class="node">执行图</text>
+    <rect x="600" y="0" width="130" height="38" rx="19" fill="#F0FDF4"/><text x="630" y="25" class="node">验证</text>
   </g>
 </svg>
