@@ -1,64 +1,62 @@
 # CAD Agent Skill
 
-A privacy-first workflow skill for CAD agents working on industrial design.
+<div align="center">
+
+**CAD 工业设计辅助 Skill**  
+从自然语言到 CAD 交付：让几何决策可追溯、可复现、可交接
+
+<a href="README.md"><img alt="中文（默认）" src="https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87%E9%BB%98%E8%AE%A4-0f766e?style=for-the-badge"></a>
+<a href="README.en.md"><img alt="English" src="https://img.shields.io/badge/README-English-0f766e?style=for-the-badge"></a>
+<a href="https://github.com/Zc030201/cad-agent-skill/actions/workflows/test.yml"><img alt="tests" src="https://img.shields.io/github/actions/workflow/status/Zc030201/cad-agent-skill/test.yml?branch=main&label=tests&style=for-the-badge"></a>
+<a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-MIT-0f766e?style=for-the-badge"></a>
+
+</div>
 
 <p align="center">
-  <a href="README.md"><img alt="English README" src="https://img.shields.io/badge/README-English-0969DA?style=for-the-badge"></a>
-  <a href="README.zh-CN.md"><img alt="中文说明" src="https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-1F883D?style=for-the-badge"></a>
+  <img src="assets/cad-agent-skill-hero.zh-CN.svg" alt="CAD Agent Skill 中文首页图示" width="760">
 </p>
 
 <p align="center">
-  <img src="assets/cad-agent-skill-hero.svg" alt="CAD Agent Skill visual overview" width="760">
+  <img src="assets/cad-agent-skill-demo.zh-CN.gif" alt="CAD Agent Skill 中文动态演示" width="760">
 </p>
 
-<p align="center">
-  <img src="assets/cad-agent-skill-demo.gif" alt="Animated CAD Agent Skill workflow demo" width="760">
-</p>
+## 适用问题
 
-This project helps CAD agents turn open-ended CAD requests into a deterministic package:
+在 CAD 自动化里，很多场景会遇到三个问题：
+
+1. 需求表达不统一，Agent 容易误解  
+2. 组件选择和放置决策难以追溯  
+3. 下游建模前缺少一致的校验标准  
+
+`CAD Agent Skill` 解决这三件事：先把任务变成结构化中间产物，再由下游建模系统执行。
+
+## 解决路径
 
 ```text
-inputs -> CAD IR -> component catalog query -> placement plan -> execution graph -> validation
+文本 / 参数需求
+        |
+        v
+    CAD IR
+        |
+        v
+组件目录检索 -> 放置规划 -> 执行图 -> 验证报告
 ```
 
-It is designed for maintainers who want repeatable CAD planning, traceable
-decisions, and safer automation before any geometry backend is asked to build
-models.
+## 核心能力（简版）
 
-## CAD Agent Skill Role
+### 结构化输入
 
-This repository is intended to work as a reusable skill layer for CAD agents.
-It does not ask an agent to generate geometry in one free-form step. Instead,
-it gives the agent a controlled workflow for translating CAD intent into
-reviewable intermediate artifacts before a CAD backend is invoked.
+将自然语言要求标准化为 `cad_ir.json`，保留约束、边界、假设与不确定项。
 
-As a CAD agent skill, it helps with:
+### 组件层能力
 
-- converting natural-language CAD requests into a structured CAD IR
-- selecting reusable components from a documented component catalog
-- producing deterministic placement plans for downstream CAD execution
-- building an execution graph with checkpoints and traceable dependencies
-- validating missing fields, unsafe assumptions, and review gaps before build
+从目录中筛选可复用组件，输出可追溯的候选列表与检索依据。
 
-## Why This Exists
+### 可验证交付
 
-AI agents can draft CAD geometry quickly, but free-form generation is hard to
-review and hard to reproduce. This repository provides a small, inspectable
-compiler layer that forces every CAD decision through structured artifacts:
+生成 `placement_plan.csv`、`execution_graph.json` 和 `validation` 报告，供人工复核或机器人复核。
 
-- `cad_ir.json`: normalized requirements, constraints, parts, and uncertainties
-- `component_catalog.csv`: reusable component metadata
-- `placement_plan.csv`: deterministic placement rows and review status
-- `execution_graph.json`: ordered build and validation nodes
-- validation reports: checks for missing fields, unsafe assumptions, and plan gaps
-
-The repository contains only synthetic examples. It intentionally excludes
-proprietary drawings, customer names, real CAD models, private paths, and
-production component libraries.
-
-## Quick Start
-
-Use the repository directly when trying the skill locally:
+## 两步起步（推荐）
 
 ```powershell
 git clone https://github.com/Zc030201/cad-agent-skill.git
@@ -66,95 +64,41 @@ cd cad-agent-skill
 python -m pip install -e .
 ```
 
-Run the synthetic validation example:
-
 ```powershell
 cad-agent-skill validate-catalog --catalog .\examples\synthetic_component_catalog.csv
 cad-agent-skill validate-placement --placement-plan .\examples\synthetic_project\planning\placement_plan.csv
 ```
 
-That is enough to confirm the CLI, data contract, and public example files are
-working. The commands below show the fuller workflow.
+前两条命令通过后，你已经完成最小可用验证链路。
 
-## Example Workflow
+## 关键产物
 
-Create a project workspace:
+- `cad_ir.json`：统一表达需求、约束与装配关系
+- `component_catalog.csv`：公开示例组件元数据
+- `placement_plan.csv`：可复查放置关系与姿态参数
+- `execution_graph.json`：建模前的执行顺序与依赖
+- `validation_report.json`：缺失字段、异常值与复核建议
 
-```powershell
-cad-agent-skill init --project-id demo-industrial-panel --root .\out\demo-industrial-panel
-```
+## 文档
 
-Create an IR from public or synthetic notes:
+- [架构说明](docs/architecture.md)
+- [数据契约](docs/data-contract.md)
+- [维护者流程](docs/maintainer-workflow.md)
+- [隐私与脱敏](docs/privacy-and-sanitization.md)
 
-```powershell
-cad-agent-skill create-ir `
-  --project-id demo-industrial-panel `
-  --out .\out\demo-industrial-panel\ir\cad_ir.json `
-  --requirement "Create a modular industrial control panel with a frame, removable cover, hinge set, and access opening."
-```
+## 适配场景
 
-Query the synthetic component catalog:
+- 先规划再建模的 CAD Agent 流程  
+- 需要可审计、可复核输出的团队协作场景  
+- 在生产交付前需要人工与自动双重校验的流水线
 
-```powershell
-cad-agent-skill query-catalog `
-  --catalog .\examples\synthetic_component_catalog.csv `
-  --category hinge `
-  --min-confidence medium `
-  --out .\out\demo-industrial-panel\planning\hinge_candidates.csv
-```
+## 隐私与脱敏
 
-Build and validate a placement plan:
+默认使用合成样例。发布前请确认未包含真实业务资料、真实主体信息、私有路径和生产组件库。  
+常用中性词：`demo`、`synthetic`、`panel`、`frame`、`cover`、`bracket`、`fixture`。  
+建议在提交前执行 `python scripts/privacy_scan.py .`。
 
-```powershell
-cad-agent-skill build-plan `
-  --selected .\examples\synthetic_selected_components.csv `
-  --out .\out\demo-industrial-panel\planning\placement_plan.csv
-
-cad-agent-skill validate-placement `
-  --placement-plan .\out\demo-industrial-panel\planning\placement_plan.csv `
-  --out .\out\demo-industrial-panel\validation\placement_validation.json
-```
-
-## Repository Layout
-
-```text
-cad-agent-skill/
-  src/cad_agent_skill/
-    cli.py
-    core.py
-  examples/
-    synthetic_component_catalog.csv
-    synthetic_selected_components.csv
-    synthetic_project/
-  docs/
-    architecture.md
-    data-contract.md
-    maintainer-workflow.md
-    privacy-and-sanitization.md
-  tests/
-  .github/workflows/test.yml
-```
-
-## Scope
-
-This project handles the planning and validation layer for CAD industrial
-design automation. It is best understood as a CAD agent helper skill or
-workflow compiler, not a replacement for a CAD kernel, CAD viewer, or modeling
-backend. A downstream backend can consume the generated IR, placement plan, and
-execution graph.
-
-## Privacy Policy For This Repo
-
-- Use synthetic examples by default.
-- Do not commit private drawings, customer names, private CAD files, screenshots,
-  business documents, or local machine paths.
-- Keep production component catalogs outside the public repository.
-- Replace real project labels with neutral names such as `demo`, `synthetic`,
-  `panel`, `frame`, `cover`, `bracket`, and `fixture`.
-
-See [Privacy And Sanitization](docs/privacy-and-sanitization.md) for the release
-checklist.
-
-## License
+## 许可证
 
 MIT
+
