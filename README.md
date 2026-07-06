@@ -1,13 +1,13 @@
-# CAD Industrial Design Compiler
+# CAD Agent Skill
 
-A privacy-first workflow compiler for agent-assisted CAD industrial design.
+A privacy-first workflow skill for CAD agents working on industrial design.
 
 <p align="center">
   <a href="README.md"><img alt="English README" src="https://img.shields.io/badge/README-English-0969DA?style=for-the-badge"></a>
   <a href="README.zh-CN.md"><img alt="中文说明" src="https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-1F883D?style=for-the-badge"></a>
 </p>
 
-This project turns open-ended CAD requests into a deterministic package:
+This project helps CAD agents turn open-ended CAD requests into a deterministic package:
 
 ```text
 inputs -> CAD IR -> component catalog query -> placement plan -> execution graph -> validation
@@ -58,7 +58,7 @@ python -m unittest discover -s tests
 Create a compiler project:
 
 ```powershell
-python -m cad_industrial_compiler init `
+python -m cad_agent_skill init `
   --project-id demo-industrial-panel `
   --root .\out\demo-industrial-panel
 ```
@@ -66,7 +66,7 @@ python -m cad_industrial_compiler init `
 Create an IR from public or synthetic notes:
 
 ```powershell
-python -m cad_industrial_compiler create-ir `
+python -m cad_agent_skill create-ir `
   --project-id demo-industrial-panel `
   --out .\out\demo-industrial-panel\ir\cad_ir.json `
   --requirement "Create a modular industrial control panel with a frame, removable cover, hinge set, and access opening."
@@ -75,7 +75,7 @@ python -m cad_industrial_compiler create-ir `
 Query the synthetic component catalog:
 
 ```powershell
-python -m cad_industrial_compiler query-catalog `
+python -m cad_agent_skill query-catalog `
   --catalog .\examples\synthetic_component_catalog.csv `
   --category hinge `
   --min-confidence medium `
@@ -85,11 +85,11 @@ python -m cad_industrial_compiler query-catalog `
 Build and validate a placement plan:
 
 ```powershell
-python -m cad_industrial_compiler build-plan `
+python -m cad_agent_skill build-plan `
   --selected .\examples\synthetic_selected_components.csv `
   --out .\out\demo-industrial-panel\planning\placement_plan.csv
 
-python -m cad_industrial_compiler validate-placement `
+python -m cad_agent_skill validate-placement `
   --placement-plan .\out\demo-industrial-panel\planning\placement_plan.csv `
   --out .\out\demo-industrial-panel\validation\placement_validation.json
 ```
@@ -97,8 +97,8 @@ python -m cad_industrial_compiler validate-placement `
 ## Repository Layout
 
 ```text
-cad-industrial-design-compiler/
-  src/cad_industrial_compiler/
+cad-agent-skill/
+  src/cad_agent_skill/
     cli.py
     core.py
   examples/

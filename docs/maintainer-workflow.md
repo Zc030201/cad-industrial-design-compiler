@@ -1,17 +1,17 @@
 # Maintainer Workflow
 
-Use this workflow when changing the compiler, examples, or docs.
+Use this workflow when changing the CAD agent skill, examples, or docs.
 
 ## Local Checks
 
 ```powershell
 python -m pip install -e .
 python -m unittest discover -s tests
-python -m cad_industrial_compiler validate-catalog `
+python -m cad_agent_skill validate-catalog `
   --catalog .\examples\synthetic_component_catalog.csv
-python -m cad_industrial_compiler validate-placement `
+python -m cad_agent_skill validate-placement `
   --placement-plan .\examples\synthetic_project\planning\placement_plan.csv
-python -m cad_industrial_compiler validate-ir `
+python -m cad_agent_skill validate-ir `
   --ir .\examples\synthetic_project\ir\cad_ir.json
 ```
 

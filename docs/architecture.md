@@ -1,6 +1,6 @@
 # Architecture
 
-The compiler is a planning layer for CAD industrial design automation. It does
+CAD Agent Skill is a planning layer for CAD industrial design automation. It does
 not generate geometry directly. Instead, it produces deterministic artifacts
 that a CAD backend can consume.
 

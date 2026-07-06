@@ -3,16 +3,16 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "cad-industrial-design-compiler"
+name = "cad-agent-skill"
 version = "0.1.0"
-description = "Privacy-first compiler workflow for agent-assisted CAD industrial design."
+description = "Privacy-first workflow skill for CAD agents."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
 authors = [
-  { name = "CAD Industrial Design Compiler contributors" }
+  { name = "CAD Agent Skill contributors" }
 ]
-keywords = ["cad", "industrial-design", "compiler", "automation", "validation"]
+keywords = ["cad", "agent", "skill", "industrial-design", "workflow", "automation", "validation"]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Intended Audience :: Developers",
@@ -25,7 +25,7 @@ classifiers = [
 ]
 
 [project.scripts]
-cad-industrial-compiler = "cad_industrial_compiler.cli:main"
+cad-agent-skill = "cad_agent_skill.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

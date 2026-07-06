@@ -5,7 +5,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from cad_industrial_compiler.core import (
+from cad_agent_skill.core import (
     build_placement_plan,
     create_ir,
     init_project,

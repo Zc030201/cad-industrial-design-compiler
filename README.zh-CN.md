@@ -1,11 +1,11 @@
-# CAD 工业设计编译器
+# CAD Agent Skill
 
 <p align="center">
   <a href="README.zh-CN.md"><img alt="中文说明" src="https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-1F883D?style=for-the-badge"></a>
   <a href="README.md"><img alt="English README" src="https://img.shields.io/badge/README-English-0969DA?style=for-the-badge"></a>
 </p>
 
-这是一个面向 CAD 工业设计的开源流程编译器示例。它把开放式设计需求整理成可检查、可复现、可交接的结构化产物，便于在真正调用 CAD 建模后端之前完成规划、追踪和验证。
+这是一个辅助 CAD Agent 工作的开源 skill 示例。它面向 CAD 工业设计，把开放式设计需求整理成可检查、可复现、可交接的结构化产物，便于在真正调用 CAD 建模后端之前完成规划、追踪和验证。
 
 流程如下：
 
@@ -54,7 +54,7 @@ python scripts\privacy_scan.py .
 初始化一个演示工程：
 
 ```powershell
-python -m cad_industrial_compiler init `
+python -m cad_agent_skill init `
   --project-id demo-industrial-panel `
   --root .\out\demo-industrial-panel
 ```
@@ -62,7 +62,7 @@ python -m cad_industrial_compiler init `
 根据公开或合成需求生成 IR：
 
 ```powershell
-python -m cad_industrial_compiler create-ir `
+python -m cad_agent_skill create-ir `
   --project-id demo-industrial-panel `
   --out .\out\demo-industrial-panel\ir\cad_ir.json `
   --requirement "Create a modular industrial control panel with a frame, removable cover, hinge set, and access opening."
@@ -71,7 +71,7 @@ python -m cad_industrial_compiler create-ir `
 查询合成组件目录：
 
 ```powershell
-python -m cad_industrial_compiler query-catalog `
+python -m cad_agent_skill query-catalog `
   --catalog .\examples\synthetic_component_catalog.csv `
   --category hinge `
   --min-confidence medium `
@@ -81,11 +81,11 @@ python -m cad_industrial_compiler query-catalog `
 生成并验证放置规划：
 
 ```powershell
-python -m cad_industrial_compiler build-plan `
+python -m cad_agent_skill build-plan `
   --selected .\examples\synthetic_selected_components.csv `
   --out .\out\demo-industrial-panel\planning\placement_plan.csv
 
-python -m cad_industrial_compiler validate-placement `
+python -m cad_agent_skill validate-placement `
   --placement-plan .\out\demo-industrial-panel\planning\placement_plan.csv `
   --out .\out\demo-industrial-panel\validation\placement_validation.json
 ```

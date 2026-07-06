@@ -83,7 +83,7 @@ def cmd_validate_ir(args: argparse.Namespace) -> None:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Compile CAD industrial design work into deterministic planning artifacts.")
+    parser = argparse.ArgumentParser(description="Run a CAD agent skill workflow for deterministic planning artifacts.")
     sub = parser.add_subparsers(dest="command", required=True)
 
     init = sub.add_parser("init", help="Create a compiler project folder.")
