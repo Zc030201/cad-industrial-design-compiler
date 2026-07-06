@@ -1,0 +1,87 @@
+{
+  "project_id": "synthetic-industrial-panel",
+  "created_at": "2026-07-06T00:00:00Z",
+  "global_units": "mm",
+  "inputs": [
+    {
+      "input_id": "IN001",
+      "kind": "requirement",
+      "path_or_text": "Create a modular industrial panel with a frame, removable cover, hinge set, and service opening.",
+      "exists": false,
+      "source_priority": "synthetic_requirement"
+    }
+  ],
+  "coordinate_system": {
+    "origin_policy": "project_defined",
+    "axis_policy": "right_handed",
+    "notes": "Synthetic example only."
+  },
+  "constraints": [
+    {
+      "constraint_id": "C001",
+      "kind": "overall_size",
+      "value": {
+        "width_mm": 600,
+        "height_mm": 420,
+        "depth_mm": 120
+      },
+      "source_ref": "IN001"
+    }
+  ],
+  "parts": [
+    {
+      "part_id": "P001",
+      "name": "frame rail",
+      "category": "frame"
+    },
+    {
+      "part_id": "P002",
+      "name": "removable cover",
+      "category": "panel"
+    },
+    {
+      "part_id": "P003",
+      "name": "hinge pair",
+      "category": "hinge"
+    }
+  ],
+  "assemblies": [
+    {
+      "assembly_id": "A001",
+      "name": "FRAME_ASSEMBLY",
+      "children": ["P001"]
+    },
+    {
+      "assembly_id": "A002",
+      "name": "COVER_ASSEMBLY",
+      "children": ["P002", "P003"]
+    }
+  ],
+  "catalog_requirements": [
+    {
+      "category": "frame",
+      "min_confidence": "medium"
+    },
+    {
+      "category": "panel",
+      "min_confidence": "medium"
+    },
+    {
+      "category": "hinge",
+      "min_confidence": "medium"
+    }
+  ],
+  "uncertainties": [
+    {
+      "item": "service opening location",
+      "status": "manual_review",
+      "reason": "No explicit drawing coordinate in synthetic requirement."
+    }
+  ],
+  "source_trace": [
+    {
+      "source_ref": "IN001",
+      "description": "Synthetic text requirement."
+    }
+  ]
+}

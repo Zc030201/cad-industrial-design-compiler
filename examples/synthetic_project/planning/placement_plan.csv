@@ -1,0 +1,6 @@
+placement_id,component_id,parent_assembly,tx_mm,ty_mm,tz_mm,rx_deg,ry_deg,rz_deg,datum_rule,status,notes
+PLC0001,SYN_FRAME_RAIL_001,FRAME_ASSEMBLY,0,0,0,0,0,0,origin_frame,candidate,synthetic root frame rail
+PLC0002,SYN_FRAME_RAIL_002,FRAME_ASSEMBLY,0,420,0,0,0,0,parallel_frame_edge,candidate,synthetic cross rail
+PLC0003,SYN_PANEL_001,COVER_ASSEMBLY,0,0,45,0,0,0,cover_outer_face,candidate,synthetic cover panel
+PLC0004,SYN_HINGE_001,COVER_ASSEMBLY,-310,0,55,0,0,0,hinge_axis_left,candidate,synthetic hinge pair
+PLC0005,SYN_BRACKET_001,FRAME_ASSEMBLY,260,180,20,0,0,90,bracket_mount_face,candidate,synthetic support bracket

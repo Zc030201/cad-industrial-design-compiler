@@ -1,0 +1,34 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+build/
+dist/
+out/
+tmp/
+
+# CAD and private project artifacts should stay out of the public repo.
+*.dwg
+*.dxf
+*.step
+*.stp
+*.sldprt
+*.sldasm
+*.x_t
+*.x_b
+*.glb
+*.obj
+*.stl
+*.3mf
+*.pdf
+*.pptx
+*.docx
+*.xlsx
+
+# Local logs and reports.
+*.log
+ErrorReports/

@@ -1,0 +1,6 @@
+component_id,category,name,confidence,parent_assembly,tx_mm,ty_mm,tz_mm,rx_deg,ry_deg,rz_deg,datum_rule,notes
+SYN_FRAME_RAIL_001,frame,generic rail profile,high,FRAME_ASSEMBLY,0,0,0,0,0,0,origin_frame,synthetic root frame rail
+SYN_FRAME_RAIL_002,frame,short cross rail,medium,FRAME_ASSEMBLY,0,420,0,0,0,0,parallel_frame_edge,synthetic cross rail
+SYN_PANEL_001,panel,flat removable cover,high,COVER_ASSEMBLY,0,0,45,0,0,0,cover_outer_face,synthetic cover panel
+SYN_HINGE_001,hinge,compact hinge pair,high,COVER_ASSEMBLY,-310,0,55,0,0,0,hinge_axis_left,synthetic hinge pair
+SYN_BRACKET_001,bracket,right angle support bracket,medium,FRAME_ASSEMBLY,260,180,20,0,0,90,bracket_mount_face,synthetic support bracket

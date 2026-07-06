@@ -1,0 +1,9 @@
+component_id,category,name,confidence,catalog_status,source,bbox_x_mm,bbox_y_mm,bbox_z_mm,notes
+SYN_FRAME_RAIL_001,frame,generic rail profile,high,active,synthetic,1200,80,40,baseline structural profile for demonstrations
+SYN_FRAME_RAIL_002,frame,short cross rail,medium,candidate,synthetic,520,60,35,secondary rail example
+SYN_PANEL_001,panel,flat removable cover,high,active,synthetic,600,420,8,neutral sheet component
+SYN_PANEL_002,panel,service access panel,medium,candidate,synthetic,240,180,6,review opening location before final build
+SYN_HINGE_001,hinge,compact hinge pair,high,active,synthetic,55,35,12,paired hinge metadata only
+SYN_BRACKET_001,bracket,right angle support bracket,medium,candidate,synthetic,90,60,45,generic support bracket
+SYN_FASTENER_001,fastener,generic screw set,medium,candidate,synthetic,12,12,18,representative fastener metadata
+SYN_GASKET_001,gasket,flat sealing strip,low,manual_review,synthetic,500,12,4,low confidence row for validation and review demos

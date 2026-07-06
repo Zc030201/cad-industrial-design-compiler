@@ -1,0 +1,46 @@
+{
+  "graph_version": "0.1",
+  "created_at": "2026-07-06T00:00:00Z",
+  "nodes": [
+    {
+      "node_id": "input",
+      "node_type": "InputNode",
+      "inputs": ["inputs"],
+      "outputs": ["ir/cad_ir.json"],
+      "depends_on": [],
+      "status": "complete",
+      "checkpoint_path": "execution/checkpoints/input.json",
+      "trace": ["synthetic requirement"]
+    },
+    {
+      "node_id": "catalog-query",
+      "node_type": "CatalogQueryNode",
+      "inputs": ["ir/cad_ir.json", "catalog/component_catalog.csv"],
+      "outputs": ["planning/selected_components.csv"],
+      "depends_on": ["input"],
+      "status": "complete",
+      "checkpoint_path": "execution/checkpoints/catalog-query.json",
+      "trace": []
+    },
+    {
+      "node_id": "placement",
+      "node_type": "PlacementSolveNode",
+      "inputs": ["planning/selected_components.csv"],
+      "outputs": ["planning/placement_plan.csv"],
+      "depends_on": ["catalog-query"],
+      "status": "complete",
+      "checkpoint_path": "execution/checkpoints/placement.json",
+      "trace": []
+    },
+    {
+      "node_id": "validate",
+      "node_type": "ValidationNode",
+      "inputs": ["planning/placement_plan.csv"],
+      "outputs": ["validation/placement_validation.json"],
+      "depends_on": ["placement"],
+      "status": "complete",
+      "checkpoint_path": "execution/checkpoints/validate.json",
+      "trace": []
+    }
+  ]
+}

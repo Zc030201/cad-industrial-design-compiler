@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cad-industrial-design-compiler"
+version = "0.1.0"
+description = "Privacy-first compiler workflow for agent-assisted CAD industrial design."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+  { name = "CAD Industrial Design Compiler contributors" }
+]
+keywords = ["cad", "industrial-design", "compiler", "automation", "validation"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering",
+]
+
+[project.scripts]
+cad-industrial-compiler = "cad_industrial_compiler.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
