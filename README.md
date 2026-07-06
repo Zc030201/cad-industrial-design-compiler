@@ -17,6 +17,21 @@ It is designed for maintainers who want repeatable CAD planning, traceable
 decisions, and safer automation before any geometry backend is asked to build
 models.
 
+## CAD Agent Skill Role
+
+This repository is intended to work as a reusable skill layer for CAD agents.
+It does not ask an agent to generate geometry in one free-form step. Instead,
+it gives the agent a controlled workflow for translating CAD intent into
+reviewable intermediate artifacts before a CAD backend is invoked.
+
+As a CAD agent skill, it helps with:
+
+- converting natural-language CAD requests into a structured CAD IR
+- selecting reusable components from a documented component catalog
+- producing deterministic placement plans for downstream CAD execution
+- building an execution graph with checkpoints and traceable dependencies
+- validating missing fields, unsafe assumptions, and review gaps before build
+
 ## Why This Exists
 
 AI agents can draft CAD geometry quickly, but free-form generation is hard to
@@ -102,7 +117,8 @@ cad-industrial-design-compiler/
 ## Scope
 
 This project handles the planning and validation layer for CAD industrial
-design automation. It does not replace a CAD kernel, CAD viewer, or modeling
+design automation. It is best understood as a CAD agent helper skill or
+workflow compiler, not a replacement for a CAD kernel, CAD viewer, or modeling
 backend. A downstream backend can consume the generated IR, placement plan, and
 execution graph.
 
