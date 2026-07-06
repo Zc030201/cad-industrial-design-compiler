@@ -2,6 +2,8 @@
 
 A privacy-first workflow compiler for agent-assisted CAD industrial design.
 
+中文说明: [README.zh-CN.md](README.zh-CN.md)
+
 This project turns open-ended CAD requests into a deterministic package:
 
 ```text
