@@ -5,7 +5,7 @@
 **CAD 工业设计辅助 Skill**  
 从自然语言到 CAD 交付：让几何决策可追溯、可复现、可交接
 
-<a href="README.md"><img alt="中文（默认）" src="https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87%E9%BB%98%E8%AE%A4-0f766e?style=for-the-badge"></a>
+<a href="README.md"><img alt="中文" src="https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-0f766e?style=for-the-badge"></a>
 <a href="README.en.md"><img alt="English" src="https://img.shields.io/badge/README-English-0f766e?style=for-the-badge"></a>
 <a href="https://github.com/Zc030201/cad-agent-skill/actions/workflows/test.yml"><img alt="tests" src="https://img.shields.io/github/actions/workflow/status/Zc030201/cad-agent-skill/test.yml?branch=main&label=tests&style=for-the-badge"></a>
 <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-MIT-0f766e?style=for-the-badge"></a>
@@ -32,15 +32,15 @@
 
 ## 解决路径
 
-```text
-文本 / 参数需求
+<p align="center">
+  <pre align="center">文本 / 参数需求
         |
         v
     CAD IR
         |
         v
-组件目录检索 -> 放置规划 -> 执行图 -> 验证报告
-```
+组件目录检索 -> 放置规划 -> 执行图 -> 验证报告</pre>
+</p>
 
 ## 核心能力（简版）
 
@@ -101,4 +101,3 @@ cad-agent-skill validate-placement --placement-plan .\examples\synthetic_project
 ## 许可证
 
 MIT
-

@@ -5,7 +5,7 @@
 **CAD Industrial Design Planning Skill**  
 Turn open-ended CAD tasks into reproducible and reviewable artifacts before geometry generation.
 
-<a href="README.md"><img alt="中文（默认）" src="https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87%E9%BB%98%E8%AE%A4-0f766e?style=for-the-badge"></a>
+<a href="README.md"><img alt="中文" src="https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-0f766e?style=for-the-badge"></a>
 <a href="README.en.md"><img alt="English" src="https://img.shields.io/badge/README-English-0f766e?style=for-the-badge"></a>
 <a href="https://github.com/Zc030201/cad-agent-skill/actions/workflows/test.yml"><img alt="tests" src="https://img.shields.io/github/actions/workflow/status/Zc030201/cad-agent-skill/test.yml?branch=main&label=tests&style=for-the-badge"></a>
 <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-MIT-0f766e?style=for-the-badge"></a>
@@ -95,4 +95,3 @@ Recommended pre-release check: `python scripts/privacy_scan.py .`
 ## License
 
 MIT
-
