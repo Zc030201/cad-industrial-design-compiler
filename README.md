@@ -2,7 +2,10 @@
 
 A privacy-first workflow compiler for agent-assisted CAD industrial design.
 
-中文说明: [README.zh-CN.md](README.zh-CN.md)
+<p align="center">
+  <a href="README.md"><img alt="English README" src="https://img.shields.io/badge/README-English-0969DA?style=for-the-badge"></a>
+  <a href="README.zh-CN.md"><img alt="中文说明" src="https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-1F883D?style=for-the-badge"></a>
+</p>
 
 This project turns open-ended CAD requests into a deterministic package:
 
