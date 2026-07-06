@@ -13,6 +13,7 @@ TEXT_EXTENSIONS = {
     ".txt",
     ".yml",
     ".yaml",
+    ".svg",
 }
 
 def join(*parts: str) -> str:

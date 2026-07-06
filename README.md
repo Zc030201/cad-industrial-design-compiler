@@ -7,6 +7,14 @@ A privacy-first workflow skill for CAD agents working on industrial design.
   <a href="README.zh-CN.md"><img alt="中文说明" src="https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-1F883D?style=for-the-badge"></a>
 </p>
 
+<p align="center">
+  <img src="assets/cad-agent-skill-hero.svg" alt="CAD Agent Skill visual overview">
+</p>
+
+<p align="center">
+  <img src="assets/cad-agent-skill-demo.gif" alt="Animated CAD Agent Skill workflow demo" width="760">
+</p>
+
 This project helps CAD agents turn open-ended CAD requests into a deterministic package:
 
 ```text

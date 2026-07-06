@@ -5,6 +5,14 @@
   <a href="README.md"><img alt="English README" src="https://img.shields.io/badge/README-English-0969DA?style=for-the-badge"></a>
 </p>
 
+<p align="center">
+  <img src="assets/cad-agent-skill-hero.svg" alt="CAD Agent Skill visual overview">
+</p>
+
+<p align="center">
+  <img src="assets/cad-agent-skill-demo.gif" alt="Animated CAD Agent Skill workflow demo" width="760">
+</p>
+
 这是一个辅助 CAD Agent 工作的开源 skill 示例。它面向 CAD 工业设计，把开放式设计需求整理成可检查、可复现、可交接的结构化产物，便于在真正调用 CAD 建模后端之前完成规划、追踪和验证。
 
 流程如下：
