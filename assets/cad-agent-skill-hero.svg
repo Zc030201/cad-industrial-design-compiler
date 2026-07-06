@@ -8,6 +8,9 @@
       <stop stop-color="#0E7C86"/>
       <stop offset="1" stop-color="#2A9D55"/>
     </linearGradient>
+    <clipPath id="outerClip">
+      <rect width="960" height="420" rx="28" ry="28"/>
+    </clipPath>
     <style>
       .title{font:700 38px Arial, 'Microsoft YaHei', sans-serif;fill:#0F172A}
       .subtitle{font:400 18px Arial, 'Microsoft YaHei', sans-serif;fill:#475569}
@@ -17,6 +20,7 @@
       .node{font:700 16px Arial, 'Microsoft YaHei', sans-serif;fill:#0F172A}
     </style>
   </defs>
+  <g clip-path="url(#outerClip)">
   <rect width="960" height="420" rx="28" fill="#FFFFFF"/>
   <rect x="24" y="24" width="912" height="372" rx="26" fill="url(#panel)" stroke="#D8E2EA"/>
   <text x="54" y="82" class="title">CAD Agent Skill</text>
@@ -54,5 +58,6 @@
     <rect x="300" y="0" width="118" height="38" rx="19" fill="#FFF7ED"/><text x="328" y="25" class="node">Plan</text>
     <rect x="450" y="0" width="118" height="38" rx="19" fill="#F1F5F9"/><text x="478" y="25" class="node">Graph</text>
     <rect x="600" y="0" width="130" height="38" rx="19" fill="#F0FDF4"/><text x="630" y="25" class="node">Validate</text>
+  </g>
   </g>
 </svg>

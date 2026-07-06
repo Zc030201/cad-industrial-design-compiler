@@ -8,6 +8,7 @@ from PIL import Image, ImageDraw, ImageFont
 ROOT = Path(__file__).resolve().parents[1]
 ASSET_DIR = ROOT / "assets"
 CANVAS = (960, 420)
+OUTER_RADIUS = 28
 
 
 def font(size: int, bold: bool = False) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
@@ -91,6 +92,9 @@ def write_svg(locale: str) -> None:
       <stop stop-color="#0E7C86"/>
       <stop offset="1" stop-color="#2A9D55"/>
     </linearGradient>
+    <clipPath id="outerClip">
+      <rect width="960" height="420" rx="28" ry="28"/>
+    </clipPath>
     <style>
       .title{{font:700 38px Arial, 'Microsoft YaHei', sans-serif;fill:#0F172A}}
       .subtitle{{font:400 18px Arial, 'Microsoft YaHei', sans-serif;fill:#475569}}
@@ -100,6 +104,7 @@ def write_svg(locale: str) -> None:
       .node{{font:700 16px Arial, 'Microsoft YaHei', sans-serif;fill:#0F172A}}
     </style>
   </defs>
+  <g clip-path="url(#outerClip)">
   <rect width="960" height="420" rx="28" fill="#FFFFFF"/>
   <rect x="24" y="24" width="912" height="372" rx="26" fill="url(#panel)" stroke="#D8E2EA"/>
   <text x="54" y="82" class="title">CAD Agent Skill</text>
@@ -137,6 +142,7 @@ def write_svg(locale: str) -> None:
     <rect x="300" y="0" width="118" height="38" rx="19" fill="#FFF7ED"/><text x="328" y="25" class="node">{text["plan"]}</text>
     <rect x="450" y="0" width="118" height="38" rx="19" fill="#F1F5F9"/><text x="478" y="25" class="node">{text["graph"]}</text>
     <rect x="600" y="0" width="130" height="38" rx="19" fill="#F0FDF4"/><text x="630" y="25" class="node">{text["validate"]}</text>
+  </g>
   </g>
 </svg>
 """
@@ -182,8 +188,9 @@ def frame_text(locale: str) -> dict:
 def make_demo_frame(active: int, locale: str) -> Image.Image:
     width, height = CANVAS
     text = frame_text(locale)
-    image = Image.new("RGB", (width, height), "#F8FAFC")
+    image = Image.new("RGBA", (width, height), (0, 0, 0, 0))
     draw = ImageDraw.Draw(image)
+    draw.rounded_rectangle((0, 0, width - 1, height - 1), radius=OUTER_RADIUS, fill="#F8FAFC", outline="#D7E0EA", width=2)
     draw.rounded_rectangle((24, 24, width - 24, height - 24), radius=28, fill="#FFFFFF", outline="#D7E0EA", width=2)
     draw.text((54, 54), "CAD Agent Skill", font=font(30, True), fill="#0F172A")
     draw.text((54, 92), text["subtitle"], font=font(17), fill="#64748B")
@@ -221,6 +228,7 @@ def write_gif(locale: str) -> None:
         append_images=frames[1:],
         duration=120,
         loop=0,
+        disposal=2,
         optimize=True,
     )
 
